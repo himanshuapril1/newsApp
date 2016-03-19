@@ -15,7 +15,7 @@ myApp.controller('MainController', ['$scope', '$http', '$mdSidenav','$sce', func
         }, function (response) {
             $scope.navLists = response.data;
         });
-        $scope.uriLink = 'http://timesofindia.indiatimes.com/rssfeedstopstories.cms';
+        $scope.uriLink = 'rssfeedstopstories';
         $scope.toggleOpt = function(a){
             $scope.toggleOptns[a] = !$scope.toggleOptns[a];
         };
@@ -36,9 +36,9 @@ myApp.controller('MainController', ['$scope', '$http', '$mdSidenav','$sce', func
             $scope.news = '';
             $scope.news_cat = cat;
             if (uri) {
-                $scope.uriLink = 'http://timesofindia.indiatimes.com/' + uri;
+                $scope.uriLink =  uri;
             } else {
-                $scope.uriLink = 'http://timesofindia.indiatimes.com/' + $scope.topStory;
+                $scope.uriLink =  $scope.topStory;
             }
             newsData();
         }
