@@ -38,7 +38,12 @@ function getNews($url){
 	$output .= ']';
 	print_r($output);
 }
-//	getNews('http://dynamic.feedsportal.com/pf/555218/http://toi.timesofindia.indiatimes.com/rssfeedstopstories.cms');
-//	getNews('http://timesofindia.indiatimes.com/rssfeeds/-2128838597.cms');
+/***
+ *
+ * For direct testing use the below URI
+ * getNews('http://timesofindia.indiatimes.com/rssfeeds/-2128838597.cms');
+ *
+ *
+ */
 	getNews($uri);
-	?>
+?>
