@@ -1,0 +1,11 @@
+{
+    "name": "himanshuapril1/newsapp",
+    "description": "News Application fetching news from Times of India RSS Feeds",
+    "license": "GPL-3.0",
+"authors": [
+                {
+                    "name": "Himanshu Aggarwal",
+                    "email": "himanshuapril1@gmail.com"
+                }
+            ],    "require": {}
+}
