@@ -34,13 +34,11 @@
         </md-content>
     </md-sidenav>
     <div flex layout="column" role="main">
-        <md-toolbar class="md-shadow-bottom-z-1 md-accent" layout='row'>
-            <div class="md-toolbar-tools">
+        <md-toolbar class="md-shadow-bottom-z-1 md-accent" layout='row' layout-align="start center">
                 <md-button class="md-icon-button" aria-label="Settings" hide-gt-sm ng-click="openLeftMenu()">
                     <span class="material-icons">menu</span>
                 </md-button>
-                <h2>Stay Updated with all latest News</h2>
-            </div>
+                <span class="md-padding">Stay Updated with Latest News</span>
         </md-toolbar>
         <md-content class='md-padding' ng-cloak>
             <h3 class="md-headline">Latest <span ng-bind-html="news_cat"></span> News</h3>
