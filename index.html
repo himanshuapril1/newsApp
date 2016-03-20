@@ -4,17 +4,19 @@
         <meta charset="utf-8">
         <link rel="icon" type="image/x-icon" href="favicon.ico" />
         <meta name="viewport" content="initial-scale=1" />
-        <title>NewsApp</title>
+        <title>News Updates</title>
+        <meta NAME="Description" CONTENT="Always stay updated with all kind of latest news around all the world">
+		<meta NAME="Keywords" CONTENT="News, India, World, Lifestyle, Auto, business">
         <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css" media="all">
         <link rel="stylesheet" href="css/style.css" media="all">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
     </head>
     <body ng-controller="MainController" layout="row">
-    <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-sidenav-left site-sidenav md-whiteframe-z2">
+    <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-sidenav-left site-sidenav md-whiteframe-z2" ng-cloak>
 
-        <h1 class="md-padding"><a href="index.html">Logo</a></h1>
+        <h1 class="md-padding"><a href="index.html">NewsUpdates</a></h1>
         <h4 class="md-padding">Choose your category</h4>
-        <md-content flex role='navigation' md-theme="accent" ng-cloak>
+        <md-content flex role='navigation' md-theme="accent">
             <ul class="cat-list">
                 <li ng-repeat="cat in navLists">
                 <md-button class="md-button md-headline" ng-click="toggleOptns = !toggleOptns">
@@ -37,7 +39,7 @@
                 <md-button class="md-icon-button" aria-label="Settings" hide-gt-sm ng-click="openLeftMenu()">
                     <span class="material-icons">menu</span>
                 </md-button>
-                <h2>Welcome to Our News Portal</h2>
+                <h2>Stay Updated with all latest News</h2>
             </div>
         </md-toolbar>
         <md-content class='md-padding' ng-cloak>
