@@ -12,14 +12,14 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
     </head>
     <body ng-controller="MainController" layout="row">
-    <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-sidenav-left site-sidenav md-whiteframe-z2" ng-cloak>
+    <md-sidenav md-is-locked-open="$mdMedia('gt-sm')" md-component-id="left" class="md-sidenav-left site-sidenav md-whiteframe-z2 blue lighten-2 white-text" ng-cloak>
 
-        <h1 class="md-padding"><a href="index.html">NewsUpdates</a></h1>
+        <a href="index.html" class="md-display-1 md-padding">NewsUpdates</a>
         <h4 class="md-padding">Choose your category</h4>
-        <md-content flex role='navigation' md-theme="accent">
+        <md-content flex role='navigation' class="blue lighten-2">
             <ul class="cat-list">
                 <li ng-repeat="cat in navLists">
-                <md-button class="md-button md-headline" ng-click="toggleOptns = !toggleOptns">
+                <md-button class="md-button md-headline blue lighten-2 " ng-click="toggleOptns = !toggleOptns">
                     <span>{{cat.section}}</span>
                 </md-button>
                 <ul ng-show="toggleOptns">
@@ -34,7 +34,7 @@
         </md-content>
     </md-sidenav>
     <div flex layout="column" role="main">
-        <md-toolbar class="md-shadow-bottom-z-1" layout='row'>
+        <md-toolbar class="md-shadow-bottom-z-1 md-accent" layout='row'>
             <div class="md-toolbar-tools">
                 <md-button class="md-icon-button" aria-label="Settings" hide-gt-sm ng-click="openLeftMenu()">
                     <span class="material-icons">menu</span>
@@ -58,7 +58,7 @@
                             <p ng-bind-html="item.description"></p>
                         </md-card-content>
                         <md-card-actions layout="row" layout-align="end center">
-                            <a href="{{ item.guid}}" target="_blank"><md-button class='md-raised md-primary'>Read Full Article</md-button></a>
+                            <a href="{{ item.guid}}" target="_blank"><md-button class='md-raised md-accent'>Read Full Article</md-button></a>
                         </md-card-actions>
                     </md-card>
                 </div>
@@ -74,7 +74,7 @@
                             <p ng-bind-html="item.description"></p>
                         </md-card-content>
                         <md-card-actions layout="row" layout-align="end center">
-                            <a href="{{ item.guid}}" target="_blank"><md-button class='md-raised md-primary'>Read Full Article</md-button></a>
+                            <a href="{{ item.guid}}" target="_blank"><md-button class='md-raised md-accent'>Read Full Article</md-button></a>
                         </md-card-actions>
                     </md-card>
                 </div>
