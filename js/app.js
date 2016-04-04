@@ -14,42 +14,11 @@ myApp.controller('MainController', ['$scope', '$http', '$mdSidenav','$sce', func
         }, function (response) {
             $scope.navLists = response.data;
         });
-        $scope.uriLink = 'rssfeedstopstories';
         $scope.toggleOpt = function(a){
             $scope.toggleOptns[a] = !$scope.toggleOptns[a];
         };
-		
-		/***
-		
-		var newsData = function () {
-            $mdSidenav('left').toggle();
-            $http({
-                url: 'services/get-news.php?uri=' + $scope.uriLink,
-                method: 'POST'
-            }).then(function (response) {
-                $scope.news = response.data;
-                $scope.status = response.status;
-            }, function (response) {
-                $scope.news = response.data;
-            });
-        };
-        newsData();
-        $scope.getData = function (cat, uri) {
-            $scope.news = '';
-            $scope.news_cat = cat;
-            if (uri) {
-                $scope.uriLink =  uri;
-            } else {
-                $scope.uriLink =  $scope.topStory;
-            }
-            newsData();
-        }
-		
-		*/
-    }])
-	.config(function($sceProvider) {
-
-  $sceProvider.enabled(false);
+}]).config(function($sceProvider) {
+	$sceProvider.enabled(false);
 });
 
 myApp.controller('HomeController', ['$scope', '$http','$sce', function ($scope, $http, $sce) {

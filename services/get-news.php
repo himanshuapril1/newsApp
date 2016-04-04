@@ -3,7 +3,15 @@ header("Access-Control-Allow-Origin: *");
 header("Content-Type: text/html; charset=UTF-8");
 
 $uri = $_REQUEST['uri'];
-$uri = str_replace('ai','rssfeeds/',$uri);
+function getPos($a){
+	strpos($uri,$a);
+}
+if(getPos('ai') == 0){
+	$uri = preg_replace('/ai/','rssfeeds/',$uri,1);
+}
+if(getPos('rac') == 0){
+	$uri = preg_replace('/rac/','rssfeed',$uri,1);	
+}
 $uri = 'http://timesofindia.indiatimes.com/' . $uri . '.cms';
 
 function getNews($url){
