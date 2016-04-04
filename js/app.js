@@ -5,7 +5,6 @@ myApp.controller('MainController', ['$scope', '$http', '$mdSidenav','$sce', func
         $scope.openLeftMenu = function () {
             $mdSidenav('left').toggle();
         };
-        $scope.a = "asas";
         $http({
             url: 'js/url-data.js',
             method: 'GET'
@@ -19,7 +18,10 @@ myApp.controller('MainController', ['$scope', '$http', '$mdSidenav','$sce', func
         $scope.toggleOpt = function(a){
             $scope.toggleOptns[a] = !$scope.toggleOptns[a];
         };
-        var newsData = function () {
+		
+		/***
+		
+		var newsData = function () {
             $mdSidenav('left').toggle();
             $http({
                 url: 'services/get-news.php?uri=' + $scope.uriLink,
@@ -42,11 +44,45 @@ myApp.controller('MainController', ['$scope', '$http', '$mdSidenav','$sce', func
             }
             newsData();
         }
+		
+		*/
     }])
 	.config(function($sceProvider) {
 
   $sceProvider.enabled(false);
 });
+
+myApp.controller('HomeController', ['$scope', '$http','$sce', function ($scope, $http, $sce) {
+	$scope.uriLink = 'rssfeedstopstories';
+		$http({
+			url: 'services/get-news.php?uri=' + $scope.uriLink,
+			method: 'POST'
+		}).then(function (response) {
+			$scope.news = response.data;
+			$scope.status = response.status;
+		}, function (response) {
+			$scope.news = response.data;
+	});
+}]);
+
+myApp.controller('ArticleController', ['$scope', '$http','$sce','$stateParams', function ($scope, $http, $sce,$stateParams) {
+		var uriLink = $stateParams.id;
+		
+		$scope.news_cat = $stateParams.page;
+		$http({
+			url: 'services/get-news.php?uri=' + uriLink,
+			method: 'POST'
+		}).then(function (response) {
+			$scope.news = response.data;
+			$scope.status = response.status;
+		}, function (response) {
+			$scope.news = response.data;
+	});
+}]);
+
+myApp.controller('ArticleDetailsController', ['$scope', '$http','$sce','$stateParams', function ($scope, $http, $sce,$stateParams) {
+	
+}]);
 
 myApp.filter('spaceless', function () {
     return function (input) {
@@ -67,4 +103,27 @@ myApp.config(function ($mdThemingProvider) {
             .accentPalette('purple'); // specify primary color, all
     // other color intentions will be inherited
     // from default
+});
+myApp.config(function ($stateProvider, $urlRouterProvider) {
+    
+	// For any unmatched url, redirect to /Home
+    $urlRouterProvider.otherwise("/Home");
+	
+    // Now set up the states
+    $stateProvider
+	.state('Home', {
+		url: "/Home",
+		templateUrl: "tmpls/main.html",
+		controller: 'HomeController'
+	})
+	.state('Category', {
+		url: "/:cat/:page/:id",
+		templateUrl: "tmpls/main.html",
+		controller:'ArticleController'
+	})
+	.state('Category.article', {
+		url: "/Details/:uri",
+		templateUrl: "tmpls/article-display.html",
+		controller:'ArticleDetailsController'
+	});
 });

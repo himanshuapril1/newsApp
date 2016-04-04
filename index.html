@@ -24,7 +24,7 @@
                 </md-button>
                 <ul ng-show="toggleOptns">
                     <li layout="row" ng-repeat="item in cat.items| orderBy:'newsCateg'">
-                        <a class="md-ink-ripple md-button" ng-click="getData(item.newsCateg, item.datauri)">
+                        <a class="md-ink-ripple md-button" ui-sref="Category({cat: cat.section, id:item.datauri, page:item.newsCateg })">
                             <p ng-bind-html="item.newsCateg"></p>
                         </a>
                     </li>
@@ -40,42 +40,8 @@
                 </md-button>
                 <span class="md-padding">Stay Updated with Latest News</span>
         </md-toolbar>
-        <md-content class='md-padding' ng-cloak>
-            <h3 class="md-headline">Latest <span ng-bind-html="news_cat"></span> News</h3>
-            <div flex="100" layout='row' layout-align="center center" ng-if="news == ''" class='text-center loader' layout-align="center" ><img src="images/loader.svg"/><br />Loading...</div>
-            <div layout-xs='column' layout='row' flex>
-                <div flex-xs flex-gt-sm='50'>
-                    <md-card ng-repeat="item in news" ng-if="$index % 2 == 0">
-                        <md-card-title>
-                            <md-card-title-text>
-                                <span class="md-headline"><a href="{{ item.guid}}" ng-bind-html="item.title"></a></span>
-                                <span class="md-subhead">{{ item.pubDate}}</span>
-                            </md-card-title-text>
-                        </md-card-title>
-                        <md-card-content>
-                            <p ng-bind-html="item.description"></p>
-                        </md-card-content>
-                        <md-card-actions layout="row" layout-align="end center">
-                            <a href="{{ item.guid}}" target="_blank"><md-button class='md-raised md-accent'>Read Full Article</md-button></a>
-                        </md-card-actions>
-                    </md-card>
-                </div>
-                <div flex-xs flex-gt-sm='50'>
-                    <md-card ng-repeat="item in news" ng-if="$index % 2 == 1">
-                        <md-card-title>
-                            <md-card-title-text>
-                                <span class="md-headline"><a href="{{ item.guid}}">{{ item.title}}</a></span>
-                                <span class="md-subhead">{{ item.pubDate}}</span>
-                            </md-card-title-text>
-                        </md-card-title>
-                        <md-card-content>
-                            <p ng-bind-html="item.description"></p>
-                        </md-card-content>
-                        <md-card-actions layout="row" layout-align="end center">
-                            <a href="{{ item.guid}}" target="_blank"><md-button class='md-raised md-accent'>Read Full Article</md-button></a>
-                        </md-card-actions>
-                    </md-card>
-                </div>
+        <md-content class='md-padding' ng-cloak ui-view>
+            <!-- Template Content goes here -->
         </md-content>
     </div>
 </div>

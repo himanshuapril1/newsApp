@@ -1,0 +1,36 @@
+<h3 class="md-headline">Latest <span ng-bind-html="news_cat"></span> News</h3>
+<div flex="100" layout='row' layout-align="center center" ng-if="news == ''" class='text-center loader' layout-align="center" ><img src="images/loader.svg"/><br />Loading...</div>
+<div layout-xs='column' layout='row' flex>
+	<div flex-xs flex-gt-sm='50'>
+		<md-card ng-repeat="item in news" ng-if="$index % 2 == 0">
+			<md-card-title>
+				<md-card-title-text>
+					<span class="md-headline" ng-bind-html="item.title"></span>
+					<span class="md-subhead">{{ item.pubDate}}</span>
+				</md-card-title-text>
+			</md-card-title>
+			<md-card-content>
+				<p ng-bind-html="item.description"></p>
+			</md-card-content>
+			<md-card-actions layout="row" layout-align="end center">
+				<a href="{{item.guid}}" target="_blank"><md-button class='md-raised md-accent'>Read Full Article</md-button></a>
+			</md-card-actions>
+		</md-card>
+	</div>
+	<div flex-xs flex-gt-sm='50'>
+		<md-card ng-repeat="item in news" ng-if="$index % 2 == 1">
+			<md-card-title>
+				<md-card-title-text>
+					<span class="md-headline" ng-bind-html="item.title"></span>
+					<span class="md-subhead">{{ item.pubDate}}</span>
+				</md-card-title-text>
+			</md-card-title>
+			<md-card-content>
+				<p ng-bind-html="item.description"></p>
+			</md-card-content>
+			<md-card-actions layout="row" layout-align="end center">
+				<a href="{{item.guid}}" target="_blank"><md-button class='md-raised md-accent'>Read Full Article</md-button></a>
+			</md-card-actions>
+		</md-card>
+	</div>
+	</div>
