@@ -1,5 +1,6 @@
 <h3 class="md-headline">Latest <span ng-bind-html="news_cat"></span> News</h3>
 <div flex="100" layout='row' layout-align="center center" ng-if="news == ''" class='text-center loader' layout-align="center" ><img src="images/loader.svg"/><br />Loading...</div>
+{{ news }}
 <div layout-xs='column' layout='row' flex>
 	<div flex-xs flex-gt-sm='50'>
 		<md-card ng-repeat="item in news" ng-if="$index % 2 == 0">
