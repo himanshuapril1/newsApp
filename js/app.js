@@ -1,6 +1,6 @@
 'use strict';
 var myApp = angular.module('myApp', ['ui.router', 'ngMaterial']);
-var apiCallUri = 'http://pravinsafety.com/services/get-news.php?uri=';
+var apiCallUri = 'http://www.pravinasafety.com/services/get-news.php?uri=';
 myApp.controller('MainController', ['$scope', '$http', '$mdSidenav','$sce', function ($scope, $http, $mdSidenav,$sce) {
         $scope.openLeftMenu = function () {
             $mdSidenav('left').toggle();
@@ -22,7 +22,7 @@ myApp.controller('MainController', ['$scope', '$http', '$mdSidenav','$sce', func
 });
 
 myApp.controller('HomeController', ['$scope', '$http','$sce', function ($scope, $http, $sce) {
-	$scope.uriLink = 'rssfeedstopstories';
+	$scope.uriLink = 'racstopstories';
 		$http({
 			url: apiCallUri + $scope.uriLink,
 			method: 'POST'
